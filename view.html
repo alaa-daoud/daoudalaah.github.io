@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Room Api</title>
+	<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<div id="app">
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Light</th>
+            <th>Light Level</th>
+            <th>Ringer</th>
+            <th>Noise Level</th>
+            <th>Light ON/OFF</th>
+            <th>Ringer ON/OFF</th>
+        </tr>
+    </thead>
+    <tbody>
+        <form action=""></form>
+        <tr v-for="room in roomArray">
+			<td>{{ room.id }}</td>
+			<td>{{ room.light.status }}</td>
+			<td>{{ room.light.level }}</td>
+			<td>{{ room.noise.status }}</td>
+			<td>{{ room.noise.level }}</td>
+			<td><button @click="switchLight(room)">ON/OFF</button></td>
+			<td><button @click="switchRinger(room)" >ON/OFF</button></td>
+			
+		</tr>
+	</tbody>	
+</table>
+</div>
+</body>
+<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.js"></script>
+	<script src="rooms.js"></script>
+</html>
