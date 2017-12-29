@@ -10,14 +10,14 @@ var app = new Vue({
     },
 	mounted() {
 			this.currentStatus=document.getElementById("stat").options[stat.selectedIndex].text;
-			axios.get(url_api + whitch_ringer +this.currentStatus)
+			axios.get(url_api + which_ringer +this.currentStatus)
 				 .then(response => {this.roomArray = response.data});
 				 
 	},
 	methods: {
 		reload(){
 			this.currentStatus=document.getElementById("stat").options[stat.selectedIndex].text;
-			axios.get(url_api + whitch_ringer+this.currentStatus)
+			axios.get(url_api + which_ringer+this.currentStatus)
 				 .then(response => {this.roomArray = response.data});
 		},
         switchRinger() {
