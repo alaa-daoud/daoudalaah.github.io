@@ -7,5 +7,5 @@ switch_light_url="/switch/light";
 which_light="/light/";
 switch_All_Lights_url="/switch/lights/";
 switch_ringer_url="/switch/ringer";
-whitch_ringer="/ringer/";
+which_ringer="/ringer/";
 switch_All_Ringers_url="/switch/ringers/";
