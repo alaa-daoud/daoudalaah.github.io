@@ -1,6 +1,7 @@
 
+
 var app = new Vue({
-  el: '#switchLight',
+  el: '#switchRinger',
   data: {
         roomArray: [],
         selected: -1,
@@ -9,20 +10,20 @@ var app = new Vue({
     },
 	mounted() {
 			this.currentStatus=document.getElementById("stat").options[stat.selectedIndex].text;
-			axios.get(url_api + which_light+this.currentStatus)
+			axios.get(url_api + whitch_ringer +this.currentStatus)
 				 .then(response => {this.roomArray = response.data});
 				 
 	},
 	methods: {
 		reload(){
 			this.currentStatus=document.getElementById("stat").options[stat.selectedIndex].text;
-			axios.get(url_api + which_light+this.currentStatus)
+			axios.get(url_api + whitch_ringer+this.currentStatus)
 				 .then(response => {this.roomArray = response.data});
 		},
         switchLight() {
             if(this.selected==-1)
 				this.selected= ( document.getElementById("sel").options[sel.selectedIndex].text);
-            axios.post(url_api + "/" + this.selected + switch_light_url);
+            axios.post(url_api + "/" + this.selected + switch_ringer_url);
 			setTimeout(this.reload, 500);
             this.reload();
 			
@@ -41,7 +42,7 @@ var app = new Vue({
 		{
 			
 			this.statusForAll= ( document.getElementById("St_all").options[St_all.selectedIndex].text);
-            axios.post(url_api + switch_All_Lights_url+this.statusForAll);
+            axios.post(url_api + switch_All_Ringers_url+this.statusForAll);
 			setTimeout(this.reload, 500);
             this.reload();
 		}

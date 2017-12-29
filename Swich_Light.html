@@ -12,48 +12,48 @@
       <a class="navbar-brand" href="#">Dashboard</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Buildings</a></li>
+      <li><a href="index.html">Buildings</a></li>
       <li><a href="rooms.html">Rooms</a></li>
-      <li><a href="Swich_Light.html">Swich Light</a></li>
+      <li class="active"><a href="#">Swich Light</a></li>
       <li><a href="Swich_Ringer.html">Swich Ringer</a></li>
     </ul>
   </div>
 </nav>
-<div class="container" id="BuildingsApp">
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Number of Rooms</th>
-            <th>Number Light ON</th>
-            <th>Number Ringer ON</th>
-            <th>Detailes</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-        <form action=""></form>
-        <tr v-for="building in buildings">
-			<td>{{ building.id }}</td>
-			<td>{{ building.name }}</td>
-			<td>{{ building.n_rooms }}</td>
-			<td>{{ building.n_Onlight }}</td>
-			<td>{{ building.n_Onringers }}</td>
-			<td><a v-bind:href="'rooms.html?bid='+building.id">show</a></td>
-			
-			
-			
-			
-		</tr>
-	</tbody>	
-</table>
+
+
+<div class="form-group" id="switchLight">
+<H2>Switch Light of a Room</H2>
+<div class="col col_12">
+  <label for="sel1">Rooms with light:</label>
+  <select class=""  @change="changeStatus(this)"  id="stat">
+	<option>ON</option>
+	<option>OFF</option>
+  </select>
+  to be swiched 
+  <select class=""  @change="changeSelect(this)"  id="sel">
+    <option v-for="room in roomArray" :value="room">{{ room.id }}</option>
+	
+  </select>
+  <button @click="switchLight()">Swich</button>
 </div>
+<div class="col col_12">
+<H2>Switch All Lights (in all rooms ,all buildings)</H2>
+  <label for="sel1">switch all lights with status:</label>
+  <select class=""  @change="changeStatus(this)"  id="St_all">
+	<option>ON</option>
+	<option>OFF</option>
+  </select>
+  
+  
+  <button @click="switchAll()" >Swich all</button>
+</div> 
+
 </body>
+
 <script src="https://unpkg.com/vue"></script>
 	<script src="https://unpkg.com/axios/dist/axios.js"></script>
 	<script src="js/config.js"></script>
-	<script src="js/buildings.js"></script>
+	<script src="js/onlight.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>

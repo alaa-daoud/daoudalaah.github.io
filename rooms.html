@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>Room Api</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Dashboard</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">Buildings</a></li>
+      <li class="active"><a href="#">Rooms</a></li>
+      <li><a href="Swich_Light.html">Swich Light</a></li>
+      <li><a href="Swich_Ringer.html">Swich Ringer</a></li>
+    </ul>
+  </div>
+  
+</nav>
+
+
+
+<center>
+<div class="form-group" id="BuildingsApp">
+  
+  <label for="sel">filter by building:</label>
+  
+  <select class=""   id="sel" @change=changeBuilding($event.target.value)>
+	<option value=-1>All</option>
+    <option v-for="building in buildings"
+	v-bind:value="building.id"
+   :selected="building.id == buil_id"
+	>
+					{{ building.name }}
+	</option>
+	
+  </select>
+  
+</div> 
+</center>
+<div class="container" id="app">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Light</th>
+            <th>Light Level</th>
+            <th>Ringer</th>
+            <th>Noise Level</th>
+            <th>Light ON/OFF</th>
+            <th>Ringer ON/OFF</th>
+        </tr>
+    </thead>
+    <tbody>
+        <form action=""></form>
+        <tr v-for="room in roomArray">
+			<td>{{ room.id }}</td>
+			<td>{{ room.light.status }}</td>
+			<td>{{ room.light.level }}</td>
+			<td>{{ room.noise.status }}</td>
+			<td>{{ room.noise.level }}</td>
+			<td><button @click="switchLight(room)">ON/OFF</button></td>
+			<td><button @click="switchRinger(room)" >ON/OFF</button></td>
+			
+		</tr>
+	</tbody>	
+</table>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.js"></script>
+	
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<script src="js/config.js"></script>
+	<script src="js/url.js"></script>
+	<script src="js/rooms.js"></script>
+</div>
+
+</body>
+
+</html>
