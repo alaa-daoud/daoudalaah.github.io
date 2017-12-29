@@ -20,7 +20,7 @@ var app = new Vue({
 			axios.get(url_api + whitch_ringer+this.currentStatus)
 				 .then(response => {this.roomArray = response.data});
 		},
-        switchLight() {
+        switchRinger() {
             if(this.selected==-1)
 				this.selected= ( document.getElementById("sel").options[sel.selectedIndex].text);
             axios.post(url_api + "/" + this.selected + switch_ringer_url);

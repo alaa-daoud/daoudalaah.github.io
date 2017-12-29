@@ -34,11 +34,11 @@
     <option v-for="room in roomArray" :value="room">{{ room.id }}</option>
 	
   </select>
-  <button @click="switchLight()">Swich</button>
+  <button @click="switchRinger()">Swich</button>
 </div>
 <div class="col col_12">
 <H2>Switch All Ringers (in all rooms ,all buildings)</H2>
-  <label for="sel1">switch all lights with status:</label>
+  <label for="sel1">switch all ringers with status:</label>
   <select class=""  @change="changeStatus(this)"  id="St_all">
 	<option>ON</option>
 	<option>OFF</option>
